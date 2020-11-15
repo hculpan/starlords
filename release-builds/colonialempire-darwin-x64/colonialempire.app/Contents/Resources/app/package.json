@@ -1,0 +1,28 @@
+{
+  "name": "colonialempire",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "description": "Build a colonial empire",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run build && electron ./dist/main.js",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds && create-dmg release-builds/colonialempire-darwin-x64/colonialempire.app release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+  },
+  "repository": "https://github.com/hculpan/colonialempire",
+  "author": "Harry Culpan",
+  "license": "MIT",
+  "devDependencies": {
+    "create-dmg": "^3.2.0",
+    "electron": "^2.0.13",
+    "electron-packager": "^12.2.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  }
+}
